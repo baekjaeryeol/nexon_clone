@@ -1,0 +1,801 @@
+@import "reset.css";
+@import "font.css";
+body {
+  font-family: "NEXON Lv2 Gothic";
+}
+
+.hidden {
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  position: relative;
+}
+.headerTop {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px;
+}
+.headerTopMenu {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.headerTopMenu i {
+  margin-right: 7px;
+}
+.headerTopMenu:hover {
+  color: #0077ff;
+  transition: 0.3s;
+}
+.headerTopLogo {
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: 180px;
+  cursor: pointer;
+}
+.headerTopJoin {
+  display: flex;
+  align-items: center;
+}
+.headerTopJoin div {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.headerTopJoin div:nth-child(3) {
+  font-size: 14px;
+  font-weight: 600;
+}
+.headerTopJoin div:nth-child(3):hover {
+  color: #0077ff;
+  transition: 0.3s;
+}
+.headerTopJoin div:last-child {
+  border: 2px solid black;
+  border-radius: 30px;
+  padding: 7px 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.headerTopJoin div:last-child:hover {
+  background-color: #0077ff;
+  border: 2px solid #0077ff;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.gameList {
+  width: 440px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #ffffff;
+  top: 0%;
+  left: -100%;
+  transition: 600ms;
+}
+.gameListCloseBtn {
+  width: 440px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #cacaca;
+}
+.gameListCloseBtn i {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameListCloseBtn i:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.gameListContent {
+  width: 440px;
+  height: 100%;
+  position: fixed;
+}
+.gameListContent .gameListContents {
+  box-sizing: border-box;
+  padding-bottom: 250px;
+  width: 440px;
+  height: 100%;
+  overflow-y: scroll;
+}
+.gameListContent .gameListContentsTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 30px 30px 30px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.gameListContent .gameListContentsTop div:first-child {
+  border-bottom: 2px solid;
+  padding-bottom: 5px;
+}
+.gameListContent .gameListContentsTop div:last-child {
+  border: 2px solid;
+  padding: 8px 15px;
+  color: #9fa1A7;
+}
+.gameListContent .gameListContentsTop div:last-child:hover {
+  color: #ffffff;
+  background-color: #9fa1A7;
+  border: 2px solid #9fa1A7;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.gameListContent .gameListContentsMid {
+  padding: 0 80px 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.gameListContent .gameListContentsMid-Items {
+  font-size: 12px;
+}
+.gameListContent .gameListContentsMid-Items .li {
+  margin-bottom: 20px;
+}
+.gameListContent .gameListContentsMid-Items .li li {
+  margin-bottom: 10px;
+  color: #9fa1A7;
+}
+.gameListContent .gameListContentsMid-Items .li li:not(.consonant):hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.gameListContent .gameListContentsMid-Items .li .consonant {
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #000000;
+}
+.gameListContent .gameListContents:hover .gameListContentsScrollBar {
+  opacity: 0;
+  -webkit-transition: all 0.5s;
+}
+.gameListContent .gameListContents::-webkit-scrollbar {
+  width: 10px;
+}
+.gameListContent .gameListContents::-webkit-scrollbar-thumb {
+  background: #cacaca;
+}
+.gameListContent .gameListContentsScrollBar {
+  width: 10px;
+  height: 100%;
+  background-color: #ffffff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: all 0.5s;
+  opacity: 1;
+}
+.gameList-ServiceBackground {
+  width: 440px;
+  height: 195px;
+  background-color: #3a3a3a;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.gameList-ServiceBackground .gameList-Service {
+  width: 320px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+.gameList-ServiceBackground .gameList-Service ul {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+}
+.gameList-ServiceBackground .gameList-Service ul li:not(:last-child) {
+  margin-bottom: 15px;
+}
+.gameList-ServiceBackground .gameList-Service ul li:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.gameList-ServiceBackground .allService {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 440px;
+  height: 50px;
+  background-color: #202020;
+  color: #ffffff;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+}
+.gameList-ServiceBackground .allService:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.gameList.open {
+  top: 0%;
+  left: 0;
+}
+
+.overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  z-index: 990;
+  opacity: 0.5;
+}
+
+.gameImg {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+.gameImg .gameBanner {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  list-style: none;
+  transition-duration: 0.5s;
+}
+.gameImg .gameBanner li img {
+  width: 100vw;
+  height: 60vh;
+}
+.gameImg .gameName {
+  color: #cacaca;
+  position: absolute;
+  z-index: 101;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 600;
+}
+.gameImg .gameName li {
+  background-color: #ffffff;
+  background-color: rgba(114, 114, 114, 0.5);
+  padding: 10px;
+  margin: 0 1px;
+  width: 50%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameImg .gameName li:hover {
+  background-color: #ffffff;
+  background-color: rgba(175, 175, 175, 0.5);
+  transition: 0.3s;
+}
+.gameImg .gameName .leftBtn i {
+  width: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.gameImg .gameName .leftBtn:hover {
+  color: #ffffff;
+  transition: 0.3s;
+}
+.gameImg .gameName .rightBtn i {
+  width: 20px;
+  font-size: 30px;
+  display: flex;
+  justify-content: right;
+  cursor: pointer;
+}
+.gameImg .gameName .rightBtn:hover {
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.topSection {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+.topSection .pushGame {
+  width: 620px;
+}
+.topSection .pushGameTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+.topSection .pushGameSearch {
+  font-size: 16px;
+  font-weight: 600;
+  width: 615px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.topSection .pushGameSearch div:first-child {
+  display: flex;
+  align-items: center;
+  color: #00cec6;
+}
+.topSection .pushGameSearch div:last-child {
+  display: flex;
+  cursor: pointer;
+}
+.topSection .pushGameSearch div:last-child i {
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topSection .pushGameSearch div:last-child .pushGameRightBtn {
+  margin-left: 5px;
+}
+.topSection .pushGameImgs {
+  width: 615px;
+  overflow: hidden;
+}
+.topSection .pushGameImgs .pushGameImgsItem {
+  width: 925px;
+  display: flex;
+  transition-duration: 0.5s;
+}
+.topSection .pushGameImgs .pushGameImgsItem li {
+  width: 165px;
+  height: 340px;
+  margin-right: 5px;
+}
+.topSection .pushGameImgs .pushGameImgsItem li:hover {
+  box-shadow: 0px 0px 10px gray;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.topSection .pushGameImgs .pushGameImgsItem li:hover img {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.topSection .pushGameImgs .pushGameImgsItem li div:nth-child(1) {
+  width: 150px;
+  height: 190px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.topSection .pushGameImgs .pushGameImgsItem li img {
+  max-width: 100%;
+}
+.topSection .pushGameImgs .pushGameImgsItem li span {
+  font-size: 10px;
+  padding: 2px 6px;
+  background-color: #00cec6;
+  color: #ffffff;
+  border-radius: 50px;
+  margin: 20px 10px 10px 10px;
+}
+.topSection .pushGameImgs .pushGameImgsItem li div:nth-child(3) {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px;
+}
+.topSection span:nth-child(2) {
+  margin-top: 86px;
+}
+.topSection .loginForm {
+  width: 410px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.topSection .loginForm .asking {
+  display: flex;
+  justify-content: right;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 100px;
+}
+.topSection .loginForm .asking div:last-child {
+  margin-left: 20px;
+}
+.topSection .loginForm .asking div:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.topSection .loginForm .loginLink {
+  width: 85%;
+}
+.topSection .loginForm .loginLink .login {
+  width: 100%;
+  height: 60px;
+  background-color: #17191d;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 7px;
+}
+.topSection .loginForm .loginLink .login:hover {
+  background-color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.topSection .loginForm .loginLink .onceLogin {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.topSection .loginForm .loginLink .onceLogin div {
+  background-color: #4a4a57;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topSection .loginForm .loginLink .onceLogin div:hover {
+  background-color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.topSection .loginForm .loginLink .onceLogin div:first-child {
+  margin-right: 2px;
+}
+.topSection .loginForm .loginLink .easyLogin {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topSection .loginForm .loginLink .easyLogin li:first-child {
+  font-size: 12px;
+  color: #9fa1A7;
+  margin-right: 20px;
+}
+.topSection .loginForm .loginLink .easyLogin li .fa-google {
+  color: #ff9900;
+}
+.topSection .loginForm .loginLink .easyLogin li .fa-facebook {
+  color: #0077ff;
+}
+.topSection .loginForm .loginLink .easyLogin li .fa-n {
+  color: #0fca08;
+}
+.topSection .loginForm .loginLink .easyLogin li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+.topSection .loginForm .loginLink .easyLogin li i:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.topSection .loginForm .loginLink .accountFind {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #737881;
+  font-size: 12px;
+}
+.topSection .loginForm .loginLink .accountFind .find {
+  display: flex;
+}
+.topSection .loginForm .loginLink .accountFind .find div:first-child {
+  margin-right: 20px;
+}
+.topSection .loginForm .loginLink .accountFind .find div:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.topSection .loginForm .loginLink .accountFind div:last-child:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.midSection {
+  width: 100%;
+  margin-top: 100px;
+}
+.midSectionTop {
+  width: 1250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+.midSectionTop ul {
+  display: flex;
+  align-items: center;
+}
+.midSectionTop ul li {
+  cursor: pointer;
+}
+.midSectionTop ul li:first-child {
+  font-size: 24px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+.midSectionTop ul li:nth-child(2) {
+  margin-right: 10px;
+}
+.midSectionTop ul li:nth-child(2) i {
+  font-size: 24px;
+}
+.midSectionTop ul li:nth-child(2) i:hover {
+  color: #0077ff;
+  transition: 0.3s;
+}
+.midSectionTop ul li:last-child {
+  font-size: 13px;
+  font-weight: 600;
+}
+.midSectionTop ul li:last-child:hover {
+  color: #0077ff;
+  transition: 0.3s;
+}
+.midSectionTop .search {
+  position: relative;
+}
+.midSectionTop .searchGame {
+  width: 300px;
+  height: 35px;
+  border: none;
+  border-bottom: 1px solid #737881;
+}
+.midSectionTop .search i {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 20px;
+}
+.midSectionTop .search i:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.midSection .hashTag {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.midSection .hashTag ul {
+  width: 1200px;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #9fa1A7;
+}
+.midSection .hashTag ul li {
+  margin: 10px 20px;
+}
+.midSection .hashTag ul li:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.midSection .gameLink {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.midSection .gameLink ul {
+  width: 1250px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.midSection .gameLink ul li {
+  width: 302px;
+  height: 320px;
+  margin-bottom: 40px;
+}
+.midSection .gameLink ul li:hover {
+  box-shadow: 0px 0px 10px gray;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.midSection .gameLink ul li:hover .gameLinkImg img {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.midSection .gameLink ul li .gameLinkImg {
+  overflow: hidden;
+}
+.midSection .gameLink ul li .gameLinkName {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 20px 20px 10px 20px;
+}
+.midSection .gameLink ul li .gameLinkName div:last-child:hover {
+  color: #0077ff;
+  transition: 0.3s;
+}
+.midSection .gameLink ul li .gameGener {
+  font-size: 11px;
+  color: #9fa1A7;
+  margin: 0 0 20px 20px;
+}
+.midSection .gameLink ul li .gameLinkIcon {
+  text-align: right;
+  margin-right: 20px;
+  font-size: 20px;
+  color: #9fa1A7;
+}
+.midSection .gameLink ul li .gameLinkIcon i:hover {
+  color: #0077ff;
+  transition: 0.3s;
+}
+.midSection .smallIconGameLink {
+  width: 1250px;
+  display: none;
+  margin: auto;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory {
+  width: 100%;
+  display: flex;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap {
+  display: flex;
+  padding: 10px 0;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap p {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #9fa1A7;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap .itme {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  margin: 5px 0;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap .itme span:first-child {
+  width: 30px;
+  height: 30px;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap .itme span:first-child img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap .itme span:last-child {
+  color: #4a4a57;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap .itme:hover {
+  cursor: pointer;
+}
+.midSection .smallIconGameLink .smallIconGameLinkCategory .wrap .itme:hover span:last-child {
+  color: #0077ff;
+  transition: 0.3s;
+}
+
+.footer {
+  width: 100%;
+  height: 100%;
+  background-color: #202020;
+  color: #ffffff;
+}
+.footerUL {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid #3a3a3a;
+}
+.footerUL li:first-child {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.footerUL li:first-child:hover {
+  border-bottom: 1px solid #ffffff;
+  cursor: pointer;
+}
+.footerUL li:last-child i {
+  margin-right: 7px;
+}
+.footerUL li i:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.footerInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 30px 10px 20px;
+}
+.footerInfo ul {
+  display: flex;
+  align-items: center;
+  width: 670px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+.footerInfo ul li {
+  margin: 0 5px 20px 10px;
+  padding-right: 15px;
+  border-right: 1px solid #3a3a3a;
+}
+.footerInfo ul li:hover {
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.footerInfo ul li:nth-child(7), .footerInfo ul li:last-child {
+  border: none;
+}
+.footerInfo ul li:nth-child(2) {
+  font-weight: 600;
+}
+.footerAddress {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px 30px;
+  font-size: 11px;
+  color: #737881;
+}
+.footerAddress span {
+  margin-bottom: 7px;
+  letter-spacing: 0.2px;
+}
+.footerAddress span:nth-child(2) span {
+  border-bottom: 1px solid #737881;
+}
+.footerAddress span:nth-child(2) span:hover {
+  border-color: #0077ff;
+  color: #0077ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.footerName {
+  padding: 0 0 30px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1400px) {
+  .smallBanner {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=home.css.map */

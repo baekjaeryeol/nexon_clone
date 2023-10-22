@@ -1,0 +1,858 @@
+@import "reset.css";
+@import "font.css";
+$hoverColor: #0077ff;
+
+@mixin hover ($color, $transition) {
+    color: $color;
+    transition: $transition;
+}
+
+body {
+    font-family: 'NEXON Lv2 Gothic';    
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    position: relative;    
+    &Top {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 20px;
+        &Menu {
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            i {
+                margin-right: 7px;
+            }
+            &:hover {
+                @include hover($hoverColor, 0.3s);
+            }
+        }
+        &Logo {
+            font-size: 25px;
+            font-weight: 600;
+            margin-left: 180px;
+            cursor: pointer;
+        }
+        &Join {
+            display: flex;
+            align-items: center;
+            div {
+                margin-left: 10px;
+                cursor: pointer;
+                &:nth-child(3) {
+                    font-size: 14px;
+                    font-weight: 600;
+                    &:hover {
+                        @include hover($hoverColor, 0.3s);
+                    }
+                }
+                &:last-child {
+                    border: 2px solid black;
+                    border-radius: 30px;
+                    padding: 7px 20px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    &:hover {
+                        background-color: $hoverColor;
+                        border: 2px solid $hoverColor;
+                        color: #ffffff;
+                        transition: 0.3s;
+                    }
+                }
+            } 
+        }
+    }    
+}
+
+.gameList {
+    width: 440px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #ffffff;
+
+    top: 0%;
+    left: -100%;
+    transition: 600ms;
+    &CloseBtn {
+        width: 440px;
+        background-color: #ffffff;
+        border-bottom: 1px solid #cacaca;
+        i {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover{
+                @include hover($hoverColor, 0.3s);
+                cursor: pointer;
+            }
+        }
+    }
+    &Content {
+        width: 440px;
+        height: 100%;
+        position: fixed;
+        .gameListContents {
+            box-sizing: border-box;
+            padding-bottom: 250px;
+            width: 440px;
+            height: 100%;
+            overflow-y: scroll;
+            &Top {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 30px 30px 30px 30px;
+                font-size: 12px;
+                font-weight: 600;
+                div {
+                    &:first-child {
+                        border-bottom: 2px solid;
+                        padding-bottom: 5px;
+                    }
+                    &:last-child {
+                        border: 2px solid;
+                        padding: 8px 15px;
+                        color: #9fa1A7;
+                        &:hover {
+                            color: #ffffff;
+                            background-color: #9fa1A7;
+                            border: 2px solid #9fa1A7;
+                            transition: 0.3s;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            &Mid {
+                padding: 0 80px 0 30px;
+                display: flex;
+                justify-content: space-between;
+                &-Items {
+                    font-size: 12px;
+                    .li {
+                        margin-bottom: 20px;
+                        li {
+                            margin-bottom: 10px;
+                            color: #9fa1A7;
+                            &:not(.consonant) {
+                                &:hover {
+                                    @include hover($hoverColor, 0.3s);
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        .consonant {
+                            font-weight: 600;
+                            margin-bottom: 15px;
+                            color: #000000;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                .gameListContentsScrollBar {
+                    opacity: 0;
+                    -webkit-transition: all .5s;
+                }           
+            }
+            &::-webkit-scrollbar {
+                width: 10px;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: #cacaca; 
+            }
+            &ScrollBar {
+                width: 10px;
+                height: 100%;
+                background-color: #ffffff;
+                position: absolute;
+                top: 0;
+                right: 0;
+                -webkit-transition: all .5s;
+                opacity: 1;
+            }
+            
+        }
+    }
+    
+    &-ServiceBackground {
+        width: 440px;
+        height: 195px;
+        background-color: #3a3a3a;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        .gameList-Service {
+            width: 320px;
+            display: flex;
+            justify-content: space-between;
+            margin: auto;            
+            ul {
+                font-size: 12px;
+                font-weight: 600;
+                color: #ffffff;
+                li {
+                    &:not(:last-child) {
+                        margin-bottom: 15px;
+                    }
+                    &:hover {
+                        color: $hoverColor;
+                        transition: 0.3s;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .allService {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 440px;
+            height: 50px;
+            background-color: #202020;
+            color: #ffffff;
+            width: 100%;
+            font-size: 12px;
+            font-weight: 600;
+            &:hover {
+                @include hover($hoverColor, 0.3s);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.gameList.open {
+    top: 0%;
+    left: 0;
+}
+
+.overlay {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    position: absolute;
+    top: 0;
+    z-index: 990;
+    opacity: 0.5;
+}
+
+.gameImg {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    .gameBanner {
+        width: 100%;
+        position: absolute;
+        display: flex;
+        list-style: none;
+        transition-duration: 0.5s;
+        li {            
+            img {
+                width: 100vw;
+                height: 60vh;
+            }
+        }
+    }
+    .gameName {
+        color: #cacaca;
+        position: absolute;
+        z-index: 101;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%);
+        width: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 17px;
+        font-weight: 600;
+        li {
+            background-color: #ffffff;
+            background-color: rgba(114, 114, 114, 0.5);
+            padding: 10px;
+            margin: 0 1px;
+            width: 50%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                background-color: #ffffff;
+                background-color: rgba(175, 175, 175, 0.5);
+                transition: 0.3s;
+            }
+        }
+        .leftBtn {
+            i {
+                width: 20px;
+                font-size: 30px;
+                cursor: pointer;
+            }
+            &:hover {
+                color: #ffffff;
+                transition: 0.3s;
+            }
+        }
+        .rightBtn {
+            i {
+                width: 20px;
+                font-size: 30px;
+                display: flex;
+                justify-content: right;
+                cursor: pointer;
+            }
+            &:hover {
+                color: #ffffff;
+                transition: 0.3s;
+            }
+        }
+    }
+}
+
+.topSection {
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    .pushGame {
+        width: 620px;
+        &Title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        &Search {
+            font-size: 16px;
+            font-weight: 600;
+            width: 615px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            div {
+                &:first-child {
+                    display: flex;
+                    align-items: center;
+                    color: #00cec6;
+                }
+                &:last-child {
+                        display: flex;
+                        cursor: pointer;
+                    i {
+                        width: 25px;
+                        height: 25px;
+                        border: 1px solid black;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .pushGameRightBtn {
+                        margin-left: 5px;
+                    }
+                }
+            }            
+        }
+        &Imgs {
+            width: 615px;
+            overflow: hidden;
+            .pushGameImgsItem {
+                width: 925px;
+                display: flex;
+                transition-duration: 0.5s;
+                li {
+                    width: 165px;
+                    height: 340px;
+                    margin-right: 5px;                
+                    &:hover {
+                        box-shadow: 0px 0px 10px gray;
+                        transition: all 0.3s ease-in-out;
+                        cursor: pointer;
+                        img {
+                            transform: scale(1.1);
+                            transition: .5s;
+                        }
+                    }
+                    div {
+                        &:nth-child(1) {
+                            width: 150px;
+                            height: 190px;
+                            overflow: hidden;
+                            margin-bottom: 15px;
+                        }
+                    }
+                    img {
+                        max-width: 100%;
+                    }
+                    span {
+                        font-size: 10px;
+                        padding: 2px 6px;
+                        background-color: #00cec6;
+                        color: #ffffff;
+                        border-radius: 50px;
+                        margin: 20px 10px 10px 10px;
+                    }
+                    div {
+                        &:nth-child(3) {
+                            font-size: 14px;
+                            font-weight: 600;             
+                            margin: 10px;
+                        }
+                    }
+                }
+            }
+            
+        }        
+    }
+    span {
+        &:nth-child(2) {
+            margin-top: 86px;
+        }
+    }
+    .loginForm {
+        width: 410px;
+        margin-top: 50px;
+        margin-left: 50px;
+        .asking {
+            display: flex;
+            justify-content: right;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 100px;
+            div {
+                &:last-child {
+                    margin-left: 20px;
+                }
+            }
+            div {
+                &:hover {
+                    @include hover($hoverColor, 0.3s);
+                    cursor: pointer;
+                }
+            }
+        }
+        .loginLink {
+            width: 85%;
+            .login {
+                width: 100%;
+                height: 60px;
+                background-color: #17191d;
+                color: #ffffff;
+                font-size: 17px;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 7px;
+                &:hover {
+                    background-color: $hoverColor;
+                    transition: 0.3s;
+                    cursor: pointer;
+                }
+            }
+            .onceLogin {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                div {
+                    background-color: #4a4a57;
+                    color: #ffffff;
+                    font-size: 14px;
+                    font-weight: 600;
+                    width: 100%;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover {
+                        background-color: $hoverColor;
+                        transition: 0.3s;
+                        cursor: pointer;
+                    }
+                }
+                div {
+                    &:first-child {
+                        margin-right: 2px;
+                    }
+                }
+            }
+            .easyLogin {
+                width: 100%;
+                margin: 20px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                li {
+                    &:first-child {
+                        font-size: 12px;
+                        color: #9fa1A7;
+                        margin-right: 20px;
+                    }
+                    .fa-google {
+                        color: #ff9900;
+                    }
+                    .fa-facebook {
+                        color: $hoverColor;
+                    }
+                    .fa-n {
+                        color: #0fca08;
+                    }
+                    i {
+                        font-size: 20px;
+                        margin-right: 10px;
+                        &:hover {
+                            opacity: 0.7;
+                            transition: 0.3s;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            .accountFind {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                color: #737881;
+                font-size: 12px;
+                .find {
+                    display: flex;
+                    div {
+                        &:first-child {
+                            margin-right: 20px;
+                        }
+                    }
+                    div {
+                        &:hover {
+                            @include hover($hoverColor, 0.3s);
+                            cursor: pointer;
+                        }
+                    }
+                }
+                div {
+                    &:last-child:hover {
+                        @include hover($hoverColor, 0.3s);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }        
+    }
+}
+
+.midSection {
+    width: 100%;
+    margin-top: 100px;
+    &Top {
+        width: 1250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+        ul {
+            display: flex;
+            align-items: center;
+            li {
+                cursor: pointer;
+                &:first-child {
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin-right: 10px;
+                }
+            }
+            li {
+                &:nth-child(2) {
+                    margin-right: 10px;
+                    i {
+                        font-size: 24px;
+                        &:hover {
+                            @include hover($hoverColor, 0.3s);
+                        }
+                    }
+                }
+            }
+            li {
+                &:last-child {
+                    font-size: 13px;
+                    font-weight: 600;
+                    &:hover {
+                        @include hover($hoverColor, 0.3s);                     
+                    }
+                }                
+            }
+        }
+        .search {
+            position: relative;
+            &Game {
+                width: 300px;
+                height: 35px;
+                border: none;
+                border-bottom: 1px solid #737881;
+            }
+            i {
+                position: absolute;
+                top: 10px;
+                right: 12px;
+                font-size: 20px;
+                &:hover {
+                    @include hover($hoverColor, 0.3s);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .hashTag {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 40px 0;
+        ul {
+            width: 1200px;
+            height: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #9fa1A7;
+            li {
+                margin: 10px 20px;
+                &:hover {
+                    @include hover($hoverColor, 0.3s);
+                    cursor: pointer;
+                }
+            }
+        }        
+    }
+    .gameLink {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        ul {
+            width: 1250px;;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            li {
+                width: 302px;
+                height: 320px;
+                margin-bottom: 40px;                
+                &:hover {
+                        box-shadow: 0px 0px 10px gray;
+                        transition: all 0.3s ease-in-out;
+                        cursor: pointer;
+                    .gameLinkImg {
+                        img {
+                            transform: scale(1.1);
+                            transition: .5s;
+                        }
+                    }
+                }
+                .gameLinkImg {
+                    overflow: hidden;                    
+                }
+                .gameLinkName {
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin: 20px 20px 10px 20px;
+                    div {
+                        &:last-child {
+                            &:hover {
+                                @include hover($hoverColor, 0.3s);
+                            }
+                        }
+                    }
+                }
+                .gameGener {
+                    font-size: 11px;
+                    color: #9fa1A7;
+                    margin: 0 0 20px 20px;
+                }
+                .gameLinkIcon {
+                    text-align: right;
+                    margin-right: 20px;
+                    font-size: 20px;
+                    color: #9fa1A7;
+                    i {
+                        &:hover {
+                            @include hover($hoverColor, 0.3s);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .smallIconGameLink {
+        width: 1250px;
+        display: none;
+        margin: auto;
+        .smallIconGameLinkCategory {
+            width: 100%;
+            display: flex;
+            .wrap {
+                display: flex;                
+                padding: 10px 0;
+                flex-wrap: wrap;
+                flex-direction: column;
+                p {
+                    font-size: 16px;
+                    font-weight: 600;
+                    padding: 10px 0;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid #9fa1A7;
+                }
+                .itme {
+                    display: flex;
+                    align-items: center;
+                    width: 300px;
+                    height: 50px;
+                    margin: 5px 0;
+                    span {
+                        &:first-child {
+                                width: 30px;
+                                height: 30px;
+                            img {
+                                border-radius: 50%;
+                                width: 30px;
+                                height: 30px;
+                            }
+                        }
+                        &:last-child {
+                            color: #4a4a57;
+                            font-weight: 600;
+                            margin-left: 10px;
+                        }
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        span {
+                            &:last-child {
+                                @include hover($hoverColor, 0.3s);
+                            }  
+                        }                                              
+                    }
+                }
+            }
+        }
+    }    
+}
+
+.footer {
+    width: 100%;
+    height: 100%;
+    background-color: #202020;
+    color: #ffffff;
+    &UL {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+        border-bottom: 1px solid #3a3a3a;
+        li {
+            &:first-child {
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 1px;
+                &:hover {
+                    border-bottom: 1px solid #ffffff;
+                    cursor: pointer;
+                }
+            }
+            &:last-child {
+                i {
+                    margin-right: 7px;
+                }
+            }
+            i {
+                &:hover {
+                    @include hover($hoverColor, 0.3s);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    &Info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 30px 10px 20px;
+        ul {
+            display: flex;
+            align-items: center;
+            width: 670px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            li {
+                margin: 0 5px 20px 10px;
+                padding-right: 15px;
+                border-right: 1px solid #3a3a3a;
+                &:hover {
+                    @include hover($hoverColor, 0.3s);
+                    cursor: pointer;
+                }
+            }
+            li {
+                &:nth-child(7), &:last-child {
+                    border: none;
+                }
+            }
+            li {
+                &:nth-child(2) {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    &Address {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 20px 30px;
+        font-size: 11px;
+        color: #737881;
+        span {
+            margin-bottom: 7px;
+            letter-spacing: 0.2px;
+        }
+        span {
+            &:nth-child(2) {
+                span {
+                    border-bottom: 1px solid #737881;
+                    &:hover {
+                        border-color: $hoverColor;
+                        @include hover($hoverColor, 0.3s);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    &Name {        
+        padding: 0 0 30px 30px;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .smallBanner {
+        display: none;
+    }
+}

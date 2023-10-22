@@ -1,0 +1,123 @@
+@import "font.css";
+$hoverColor: #0077ff;
+$fontWeight: 600;
+@mixin hover ($color, $transition) {
+    color: $color;
+    transition: $transition;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'NEXON Lv2 Gothic';
+    ul, li, a, button {
+        all: unset;
+    }
+    .header {
+        width: 100%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #000000;
+        &Top {
+            width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            margin: auto;
+            .title {
+                span {
+                    &:first-child {
+                        padding-right: 3px;
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                    &:last-child {
+                        font-size: 13px;
+                        font-weight: 600;
+                    }
+                }
+            }
+            .join {
+                font-size: 11px;
+                color: #666666;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                li {
+                    padding: 0 5px;
+                    cursor: pointer;
+                    &:not(li:nth-child(3)) {
+                        border-right: 1px solid #4d4d4d;
+                    }
+                    &:hover {
+                        @include hover($hoverColor, 0.3s);
+                    }
+                }                
+            }
+        }
+    }
+    .section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .welcome {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;
+            border-bottom: 1px solid #bbbbbb;
+            div {
+                &:first-child {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    font-size: 30px;
+                    font-weight: $fontWeight;
+                    i {
+                        font-size: 100px;
+                    }
+                }
+            }
+            div {
+                &:last-child {
+                    font-size: 30px;
+                    font-weight: $fontWeight;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .select {
+            font-size: 20px;
+            padding: 20px 0;
+        }
+    }
+    .howJoin {
+        display: flex;
+        flex-direction: column;
+        &FirstLI {
+            padding: 20px 30px;
+            margin: 10px;
+            border: 1px solid #bbbbbb;
+            ul {
+                li {
+                    margin-right: 10px;
+                    i {
+                        font-size: 20px;
+                    }
+                    &:nth-child(2) {
+                        font-weight: $fontWeight;
+                    }
+                    &:last-child {
+                        font-size: 13px;
+                        color: #666666;
+                    }
+                }                
+            }
+            &:hover {
+                border: 2px solid $hoverColor;
+                cursor: pointer;
+            }
+        }
+    }
+}

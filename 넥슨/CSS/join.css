@@ -1,0 +1,109 @@
+@import "font.css";
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "NEXON Lv2 Gothic";
+}
+body ul, body li, body a, body button {
+  all: unset;
+}
+body .header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #000000;
+}
+body .headerTop {
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+body .headerTop .title span:first-child {
+  padding-right: 3px;
+  font-size: 20px;
+  font-weight: 600;
+}
+body .headerTop .title span:last-child {
+  font-size: 13px;
+  font-weight: 600;
+}
+body .headerTop .join {
+  font-size: 11px;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body .headerTop .join li {
+  padding: 0 5px;
+  cursor: pointer;
+}
+body .headerTop .join li:not(li:nth-child(3)) {
+  border-right: 1px solid #4d4d4d;
+}
+body .headerTop .join li:hover {
+  color: #0077ff;
+  transition: 0.3s;
+}
+body .section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .section .welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-bottom: 1px solid #bbbbbb;
+}
+body .section .welcome div:first-child {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  font-weight: 600;
+}
+body .section .welcome div:first-child i {
+  font-size: 100px;
+}
+body .section .welcome div:last-child {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+body .section .select {
+  font-size: 20px;
+  padding: 20px 0;
+}
+body .howJoin {
+  display: flex;
+  flex-direction: column;
+}
+body .howJoinFirstLI {
+  padding: 20px 30px;
+  margin: 10px;
+  border: 1px solid #bbbbbb;
+}
+body .howJoinFirstLI ul li {
+  margin-right: 10px;
+}
+body .howJoinFirstLI ul li i {
+  font-size: 20px;
+}
+body .howJoinFirstLI ul li:nth-child(2) {
+  font-weight: 600;
+}
+body .howJoinFirstLI ul li:last-child {
+  font-size: 13px;
+  color: #666666;
+}
+body .howJoinFirstLI:hover {
+  border: 2px solid #0077ff;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=join.css.map */
